@@ -63,6 +63,36 @@
   outline-offset: 4px;
 }
 
+.app-preview-intro {
+  font-size: 1.2rem !important;
+}
+
+.app-store-placeholder {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  margin: 24px 0 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: #fff;
+  background: #23221e;
+}
+
+.app-store-placeholder > span {
+  font-size: 2rem;
+}
+
+.app-store-placeholder div {
+  display: grid;
+  gap: 2px;
+}
+
+.app-store-placeholder small {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 @media (max-width: 560px) {
   .legal-card {
     margin-top: 24px;

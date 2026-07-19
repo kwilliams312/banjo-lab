@@ -97,6 +97,17 @@
   background: var(--surface);
 }
 
+.action-status {
+  margin-left: 8px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #fff;
+  background: #8f470d;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .home-actions a:hover {
   filter: brightness(1.05);
 }
