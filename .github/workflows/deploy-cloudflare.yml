@@ -1,0 +1,62 @@
+name: Deploy site to Cloudflare
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  trigger-deploy:
+    name: Trigger Cloudflare build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Trigger production deploy hook
+        env:
+          CLOUDFLARE_DEPLOY_HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${CLOUDFLARE_DEPLOY_HOOK_URL}" ]]; then
+            echo "::error::Repository secret CLOUDFLARE_DEPLOY_HOOK_URL is not configured."
+            exit 1
+          fi
+
+          response="$(
+            curl \
+              --fail-with-body \
+              --silent \
+              --show-error \
+              --retry 2 \
+              --retry-all-errors \
+              --max-time 30 \
+              --request POST \
+              "${CLOUDFLARE_DEPLOY_HOOK_URL}"
+          )"
+
+          if ! jq -e '.success == true' <<<"${response}" >/dev/null; then
+            echo "::error::Cloudflare did not accept the deployment request."
+            jq . <<<"${response}" >&2
+            exit 1
+          fi
+
+          build_uuid="$(jq -r '.result.build_uuid // "unknown"' <<<"${response}")"
+          build_status="$(jq -r '.result.status // "queued"' <<<"${response}")"
+          already_exists="$(jq -r '.result.already_exists // false' <<<"${response}")"
+
+          {
+            echo "### Cloudflare deployment triggered"
+            echo ""
+            echo "- Build: \`${build_uuid}\`"
+            echo "- Status: \`${build_status}\`"
+            echo "- Existing pending build reused: \`${already_exists}\`"
+          } >>"${GITHUB_STEP_SUMMARY}"

@@ -1,0 +1,570 @@
+.songs-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.songs-hero {
+  max-width: 850px;
+  margin-bottom: 56px;
+}
+
+.songs-hero h1 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3.6rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.section-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.song-library {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.library-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 30px;
+}
+
+.library-heading h2,
+.licensed-song-note h2 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.library-heading > p {
+  max-width: 440px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 7px;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--line);
+}
+
+.category-tabs button {
+  min-width: 132px;
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.category-tabs button[aria-selected="true"] {
+  border-color: var(--line);
+  color: var(--surface);
+  background: var(--dark-ring);
+}
+
+.category-tabs button:focus-visible,
+.song-panel:focus-visible,
+#song-select:focus-visible,
+.song-metronome input:focus-visible,
+#song-metronome-toggle:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 3px;
+}
+
+.song-panel {
+  padding: 30px;
+  border-radius: 0 0 22px 22px;
+}
+
+.song-picker-row {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(420px, 1.4fr);
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 38px;
+}
+
+.song-picker label,
+.song-tempo-control label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#song-select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+}
+
+.song-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0;
+}
+
+.song-facts div {
+  padding: 12px;
+  border-radius: 9px;
+  background: var(--paper);
+}
+
+.song-facts dt,
+.song-facts dd {
+  margin: 0;
+}
+
+.song-facts dt {
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+}
+
+.song-facts dd {
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.song-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.song-source {
+  margin: 0 0 5px;
+  color: var(--accent);
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.song-heading h2 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.song-heading > p {
+  max-width: 480px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.song-metronome {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.3fr) minmax(230px, 1fr) auto;
+  gap: 24px 36px;
+  align-items: center;
+  margin-bottom: 36px;
+  padding: 24px 28px;
+  border-radius: 16px;
+  background: var(--dark-ring);
+  color: var(--surface);
+}
+
+.metronome-copy h3,
+.progression-section h3,
+.tab-heading h3 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.metronome-copy > p:last-child {
+  margin: 5px 0 0;
+  color: #d7d3c8;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.song-tempo-control label {
+  color: #d7d3c8;
+}
+
+.song-bpm-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.song-bpm-entry input {
+  width: 88px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid #68645c;
+  border-radius: 9px;
+  color: var(--ink);
+  background: #fffdf7;
+  font: inherit;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.song-bpm-entry span {
+  color: #d7d3c8;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.song-tempo-control input[type="range"] {
+  width: 100%;
+  min-height: 30px;
+  margin-top: 4px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.song-metronome-action {
+  display: grid;
+  justify-items: center;
+  min-width: 190px;
+}
+
+.song-beat-dots {
+  display: flex;
+  gap: 8px;
+  min-height: 12px;
+  margin-bottom: 4px;
+}
+
+.song-beat-dot {
+  width: 9px;
+  height: 9px;
+  border: 1px solid #aaa59a;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: opacity 80ms ease, transform 80ms ease, background-color 80ms ease;
+}
+
+.song-beat-dot.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  opacity: 1;
+  transform: scale(1.28);
+}
+
+.song-beat-dot.is-downbeat {
+  border-color: #fffdf7;
+}
+
+.song-metronome-status {
+  min-height: 1.1em;
+  margin: 0 0 7px;
+  color: #d7d3c8;
+  font-size: 0.62rem;
+  text-align: center;
+}
+
+#song-metronome-toggle {
+  min-width: 190px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 9px;
+  color: #fffdf7;
+  background: var(--accent);
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#song-metronome-toggle:hover {
+  filter: brightness(1.08);
+}
+
+.song-audio-help {
+  grid-column: 1 / -1;
+  min-height: 1em;
+  margin: -14px 0 0;
+  color: #ffd2c5;
+  font-size: 0.68rem;
+}
+
+.progression-section,
+.song-tab-section {
+  margin-top: 32px;
+}
+
+.progression-section > div,
+.tab-heading {
+  margin-bottom: 14px;
+}
+
+.song-progression {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(60px, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.song-progression li {
+  padding: 11px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: center;
+}
+
+.song-progression li.is-active {
+  border-color: var(--dark-ring);
+  color: var(--surface);
+  background: var(--dark-ring);
+}
+
+.tab-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.tab-heading > p {
+  max-width: 340px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.song-tab-strip {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(220px, 1fr));
+  gap: 9px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+}
+
+.song-tab-measure {
+  min-width: 220px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.song-tab-measure.is-active {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.song-tab-measure h4 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 11px;
+  font-size: 0.66rem;
+}
+
+.song-tab-measure h4 span {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.song-finger-row,
+.song-tab-line {
+  display: grid;
+  grid-template-columns: 20px repeat(8, minmax(18px, 1fr));
+  align-items: center;
+}
+
+.song-finger-row {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.song-tab-label {
+  color: var(--muted);
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.song-tab-cell {
+  display: grid;
+  place-items: center;
+  min-height: 25px;
+  border-top: 1px solid #a8a49a;
+  font-size: 0.64rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.song-tab-note {
+  min-width: 13px;
+  padding: 0 2px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.licensed-song-note {
+  margin-top: 30px;
+  padding: 26px 30px;
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.licensed-song-note p:last-child {
+  max-width: 800px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .song-picker-row {
+    grid-template-columns: 1fr;
+  }
+
+  .song-metronome {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metronome-copy {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .songs-shell {
+    width: min(100% - 24px, 1180px);
+    padding-top: 24px;
+  }
+
+  .songs-hero {
+    margin-bottom: 44px;
+  }
+
+  .library-heading,
+  .song-heading,
+  .tab-heading {
+    display: block;
+  }
+
+  .library-heading > p,
+  .song-heading > p,
+  .tab-heading > p {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .category-tabs {
+    gap: 4px;
+    overflow-x: auto;
+    padding: 0 18px;
+  }
+
+  .category-tabs button {
+    min-width: 110px;
+  }
+
+  .song-panel {
+    padding: 22px 18px;
+  }
+
+  .song-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .song-metronome {
+    grid-template-columns: 1fr;
+    padding: 22px 20px;
+  }
+
+  .metronome-copy {
+    grid-column: auto;
+  }
+
+  .song-metronome-action {
+    justify-items: stretch;
+  }
+
+  .song-beat-dots {
+    justify-content: center;
+  }
+
+  #song-metronome-toggle {
+    width: 100%;
+  }
+
+  .song-audio-help {
+    grid-column: auto;
+    margin-top: -10px;
+  }
+
+  .song-progression {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .licensed-song-note {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .song-beat-dot {
+    transition: none;
+  }
+}

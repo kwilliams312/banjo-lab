@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A complete open-G five-string banjo chord chart with major, minor, and dominant seventh voicings for all 12 chromatic roots." />
+    <title>Banjo Lab · Open G Chord Chart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="chords.css" />
+  </head>
+  <body>
+    <main class="chords-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <div>
+          <a href="index.html">Circle</a>
+          <a href="chords.html" aria-current="page">Chord Chart</a>
+          <a href="practice.html?key=1">Chord Practice</a>
+          <a href="songs.html">Song Practice</a>
+          <a href="rolls.html">Roll Library</a>
+          <a href="flashcards.html">Flash Cards</a>
+          <a href="terms.html">Music Terms</a>
+        </div>
+      </nav>
+
+      <header class="chords-hero">
+        <p class="eyebrow">5-string banjo · gDGBD</p>
+        <h1>Open G Chord Chart</h1>
+        <p class="intro">
+          One practical voicing for every chromatic major, minor, and dominant seventh chord. Each diagram shows
+          the four long strings in open-G tuning, with recommended fretting fingers numbered 1–4.
+        </p>
+      </header>
+
+      <section class="chart-guide" aria-labelledby="chart-guide-title">
+        <div>
+          <p class="section-kicker">How to read the chart</p>
+          <h2 id="chart-guide-title">Fret numbers below, fingers on the dots</h2>
+        </div>
+        <dl>
+          <div><dt>1–4</dt><dd>Index through pinky</dd></div>
+          <div><dt>O</dt><dd>Play the string open</dd></div>
+          <div><dt>4 → 1</dt><dd>Long-string order</dd></div>
+        </dl>
+        <p>
+          The short fifth-string G drone is omitted from the diagrams. Play it when G belongs to the chord or
+          when its sound fits the arrangement; otherwise avoid it or use a fifth-string capo.
+        </p>
+      </section>
+
+      <nav class="family-jump" aria-label="Chord families">
+        <span>Jump to</span>
+        <a href="#major-chords">Major</a>
+        <a href="#minor-chords">Minor</a>
+        <a href="#seventh-chords">Dominant 7</a>
+      </nav>
+
+      <section id="major-chords" class="chord-family" aria-labelledby="major-title">
+        <div class="family-heading">
+          <div>
+            <p class="section-kicker">Root · major third · perfect fifth</p>
+            <h2 id="major-title">Major chords</h2>
+          </div>
+          <p>Bright, stable harmony used for I, IV, and V chords in a major key.</p>
+        </div>
+        <div id="major-grid" class="chord-grid"></div>
+      </section>
+
+      <section id="minor-chords" class="chord-family" aria-labelledby="minor-title">
+        <div class="family-heading">
+          <div>
+            <p class="section-kicker">Root · minor third · perfect fifth</p>
+            <h2 id="minor-title">Minor chords</h2>
+          </div>
+          <p>Darker chord quality used for ii, iii, and vi chords in a major key.</p>
+        </div>
+        <div id="minor-grid" class="chord-grid"></div>
+      </section>
+
+      <section id="seventh-chords" class="chord-family" aria-labelledby="seventh-title">
+        <div class="family-heading">
+          <div>
+            <p class="section-kicker">Major triad · minor seventh</p>
+            <h2 id="seventh-title">Dominant seventh chords</h2>
+          </div>
+          <p>Tense, driving chords that commonly resolve to a tonic one perfect fifth below. Some compact shapes omit the fifth.</p>
+        </div>
+        <div id="seventh-grid" class="chord-grid"></div>
+      </section>
+    </main>
+
+    <script src="chords.js"></script>
+  </body>
+</html>

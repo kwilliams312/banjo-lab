@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Beginner five-string banjo song accompaniment tabs for traditional folk, bluegrass, and religious repertoire, with an adjustable metronome." />
+    <title>Banjo Lab · Song Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="songs.css" />
+  </head>
+  <body>
+    <main class="songs-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <div>
+          <a href="index.html">Circle</a>
+          <a href="chords.html">Chord Chart</a>
+          <a href="practice.html?key=1">Chord Practice</a>
+          <a href="songs.html" aria-current="page">Song Practice</a>
+          <a href="rolls.html">Roll Library</a>
+          <a href="flashcards.html">Flash Cards</a>
+          <a href="terms.html">Music Terms</a>
+        </div>
+      </nav>
+
+      <header class="songs-hero">
+        <p class="eyebrow">Beginner accompaniment studies</p>
+        <h1>Banjo Song Practice</h1>
+        <p class="intro">
+          Build timing and chord changes with a steady forward roll. Choose a traditional song, start below the
+          suggested tempo, and follow the highlighted measure as the metronome advances.
+        </p>
+      </header>
+
+      <section class="song-library" aria-labelledby="song-library-title">
+        <div class="library-heading">
+          <div>
+            <p class="section-kicker">Practice library</p>
+            <h2 id="song-library-title">Choose a style and song</h2>
+          </div>
+          <p>These are simplified accompaniment exercises—not note-for-note performance transcriptions.</p>
+        </div>
+
+        <div class="category-tabs" role="tablist" aria-label="Song categories">
+          <button id="folk-tab" type="button" role="tab" aria-selected="true" aria-controls="song-panel" data-category="folk">Folk</button>
+          <button id="bluegrass-tab" type="button" role="tab" aria-selected="false" aria-controls="song-panel" data-category="bluegrass" tabindex="-1">Bluegrass</button>
+          <button id="religious-tab" type="button" role="tab" aria-selected="false" aria-controls="song-panel" data-category="religious" tabindex="-1">Religious</button>
+        </div>
+
+        <section id="song-panel" class="song-panel" role="tabpanel" aria-labelledby="folk-tab" tabindex="0">
+          <div class="song-picker-row">
+            <div class="song-picker">
+              <label for="song-select">Song</label>
+              <select id="song-select"></select>
+            </div>
+            <dl class="song-facts" aria-label="Selected song practice details">
+              <div><dt>Key</dt><dd id="song-key">G major</dd></div>
+              <div><dt>Time</dt><dd>4/4</dd></div>
+              <div><dt>Starting tempo</dt><dd id="song-tempo">72 BPM</dd></div>
+            </dl>
+          </div>
+
+          <div class="song-heading">
+            <div>
+              <p id="song-source" class="song-source">Traditional</p>
+              <h2 id="song-title">Man of Constant Sorrow</h2>
+            </div>
+            <p id="song-description"></p>
+          </div>
+
+          <section class="song-metronome" aria-labelledby="song-metronome-title">
+            <div class="metronome-copy">
+              <p class="section-kicker">Four beats per measure</p>
+              <h3 id="song-metronome-title">Practice metronome</h3>
+              <p>The higher click marks beat one; the active tab measure advances every four clicks.</p>
+            </div>
+            <div class="song-tempo-control">
+              <label for="song-bpm-number">Tempo</label>
+              <div class="song-bpm-entry">
+                <input id="song-bpm-number" type="number" min="40" max="220" step="1" value="72" inputmode="numeric" />
+                <span aria-hidden="true">BPM</span>
+              </div>
+              <input id="song-bpm-range" type="range" min="40" max="220" step="1" value="72" aria-label="Song practice tempo in beats per minute" />
+            </div>
+            <div class="song-metronome-action">
+              <div id="song-beat-dots" class="song-beat-dots" aria-hidden="true"></div>
+              <p id="song-metronome-status" class="song-metronome-status" aria-live="polite">Stopped</p>
+              <button id="song-metronome-toggle" type="button" aria-pressed="false">
+                <span aria-hidden="true">▶</span> Start metronome
+              </button>
+            </div>
+            <p id="song-audio-help" class="song-audio-help" aria-live="polite"></p>
+          </section>
+
+          <section class="progression-section" aria-labelledby="progression-title">
+            <div>
+              <p class="section-kicker">One chord per measure</p>
+              <h3 id="progression-title">Chord form</h3>
+            </div>
+            <ol id="song-progression" class="song-progression"></ol>
+          </section>
+
+          <section class="song-tab-section" aria-labelledby="song-tab-title">
+            <div class="tab-heading">
+              <div>
+                <p class="section-kicker">Forward roll · T I M T I M T M</p>
+                <h3 id="song-tab-title">Accompaniment tab</h3>
+              </div>
+              <p>Play two evenly spaced tab notes per metronome click.</p>
+            </div>
+            <div id="song-tab" class="song-tab-strip"></div>
+          </section>
+        </section>
+      </section>
+
+      <aside class="licensed-song-note" aria-labelledby="licensed-song-title">
+        <p class="section-kicker">Licensed arrangements</p>
+        <h2 id="licensed-song-title">Rainbow Connection &amp; Doug’s Tune</h2>
+        <p>
+          These modern compositions are not reproduced in the library. Use legally licensed sheet music or tab;
+          the adjustable metronome above can still support practice at any tempo.
+        </p>
+      </aside>
+    </main>
+
+    <script src="songs.js"></script>
+  </body>
+</html>

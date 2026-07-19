@@ -1,0 +1,385 @@
+.chords-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.chords-hero {
+  max-width: 850px;
+  margin-bottom: 52px;
+}
+
+.chords-hero h1 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3.6rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.section-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.chart-guide {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(340px, 1.2fr);
+  gap: 24px 48px;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.chart-guide h2,
+.family-heading h2 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.chart-guide dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0;
+}
+
+.chart-guide dl div {
+  padding: 12px 10px;
+  border-radius: 9px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.chart-guide dt {
+  color: var(--accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-guide dd {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.chart-guide > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.family-jump {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 64px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.family-jump span {
+  margin: 0 5px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.family-jump a {
+  min-height: 44px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.family-jump a:hover {
+  color: var(--accent);
+  background: var(--paper);
+}
+
+.family-jump a:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+.chord-family {
+  scroll-margin-top: 24px;
+}
+
+.chord-family + .chord-family {
+  margin-top: 76px;
+}
+
+.family-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.family-heading > p {
+  max-width: 430px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.chord-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.chord-chart-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(47, 42, 32, 0.08);
+}
+
+.chord-chart-card.is-open-g {
+  border-color: var(--accent);
+}
+
+.chord-card-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 52px;
+}
+
+.chord-card-heading h3 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.home-badge {
+  flex: 0 0 auto;
+  padding: 5px 7px;
+  border-radius: 6px;
+  color: var(--surface);
+  background: var(--accent);
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.chord-diagram {
+  display: block;
+  width: min(100%, 160px);
+  height: auto;
+  margin: 8px auto 12px;
+}
+
+.chord-diagram .fret,
+.chord-diagram .string {
+  stroke: var(--line);
+  stroke-width: 2;
+}
+
+.chord-diagram .nut {
+  stroke: var(--ink);
+  stroke-width: 5;
+}
+
+.chord-diagram .marker {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.chord-diagram .open-marker {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+
+.chord-diagram text {
+  fill: var(--muted);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  text-anchor: middle;
+}
+
+.chord-diagram .position-label {
+  fill: var(--ink);
+  font-size: 9px;
+  font-weight: 700;
+  text-anchor: end;
+}
+
+.chord-diagram .marker-label {
+  fill: var(--surface);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.chord-diagram .open-label {
+  fill: var(--accent);
+}
+
+.chord-card-meta {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.chord-card-meta div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chord-card-meta div + div {
+  margin-top: 6px;
+}
+
+.chord-card-meta dt,
+.chord-card-meta dd {
+  margin: 0;
+}
+
+.chord-card-meta dt {
+  color: var(--muted);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+
+.chord-card-meta dd {
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 960px) {
+  .chord-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .chart-guide {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-guide > p {
+    grid-column: auto;
+  }
+
+  .chord-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .chords-shell {
+    width: min(100% - 24px, 1180px);
+    padding-top: 24px;
+  }
+
+  .chords-hero {
+    margin-bottom: 44px;
+  }
+
+  .chart-guide {
+    padding: 20px;
+  }
+
+  .chart-guide dl {
+    grid-template-columns: 1fr;
+  }
+
+  .family-jump {
+    display: grid;
+  }
+
+  .family-jump span {
+    margin: 4px 8px;
+  }
+
+  .family-heading {
+    display: block;
+  }
+
+  .family-heading > p {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .chord-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chord-family + .chord-family {
+    margin-top: 56px;
+  }
+}
+
+@media print {
+  .site-nav,
+  .family-jump {
+    display: none;
+  }
+
+  .chords-shell {
+    width: 100%;
+    padding: 0;
+  }
+
+  .chords-hero,
+  .chart-guide {
+    margin-bottom: 24px;
+  }
+
+  .chord-family + .chord-family {
+    margin-top: 36px;
+  }
+
+  .chord-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .chord-chart-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}
