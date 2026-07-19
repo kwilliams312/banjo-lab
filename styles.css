@@ -58,7 +58,7 @@ body {
   padding-left: 0;
   color: var(--ink);
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(1.6rem, 2.3vw, 1.85rem);
+  font-size: clamp(2rem, 3vw, 2.35rem);
   font-weight: 400;
   line-height: 0.95;
   text-wrap: balance;
@@ -156,7 +156,7 @@ svg {
 }
 
 .hero h1 {
-  font-size: clamp(2.9rem, 6.5vw, 5rem);
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
   line-height: 0.92;
 }
 
@@ -176,7 +176,7 @@ svg {
 h1 {
   margin: 0;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(3.6rem, 8vw, 6.5rem);
+  font-size: clamp(3rem, 6vw, 5.25rem);
   font-weight: 400;
   line-height: 0.88;
   text-wrap: balance;
