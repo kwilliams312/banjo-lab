@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Banjo chord-sequence exercises with an adjustable metronome for every major key." />
+    <title>Banjo Practice Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="practice.css" />
+  </head>
+  <body>
+    <main class="practice-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <div>
+          <a href="index.html">Circle</a>
+          <a href="practice.html?key=1" aria-current="page">Chord Practice</a>
+          <a href="rolls.html">Roll Library</a>
+          <a href="flashcards.html">Flash Cards</a>
+          <a href="terms.html">Music Terms</a>
+        </div>
+      </nav>
+
+      <header class="practice-hero">
+        <div>
+          <p class="eyebrow">Banjo practice room</p>
+          <h1>Practice <span id="practice-key-name">G major</span></h1>
+          <p class="intro">
+            Choose a progression, set a comfortable tempo, and change chords when the highlighted measure advances.
+          </p>
+        </div>
+        <div class="key-picker">
+          <label for="key-select">Practice key</label>
+          <select id="key-select"></select>
+          <small id="key-signature">1 sharp · relative E minor</small>
+        </div>
+      </header>
+
+      <section class="chord-reference" aria-labelledby="chord-reference-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Your chord palette</p>
+            <h2 id="chord-reference-title">Every chord in the key</h2>
+          </div>
+          <p>Major · minor · diminished</p>
+        </div>
+        <ol id="practice-chords"></ol>
+      </section>
+
+      <div class="practice-grid">
+        <section class="exercise-library" aria-labelledby="exercise-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Choose a drill</p>
+              <h2 id="exercise-title">Chord sequences</h2>
+            </div>
+          </div>
+          <div id="exercise-list" class="exercise-list"></div>
+        </section>
+
+        <section class="player" aria-labelledby="player-title">
+          <div class="player-heading">
+            <div>
+              <p class="section-kicker">Now practicing</p>
+              <h2 id="player-title">Three-chord foundation</h2>
+            </div>
+            <p id="playback-status" class="status" aria-live="polite">Stopped</p>
+          </div>
+
+          <ol id="active-sequence" class="active-sequence" aria-label="Current chord sequence"></ol>
+
+          <div class="current-readout">
+            <div>
+              <span>Current chord</span>
+              <strong id="current-chord" aria-live="polite">G</strong>
+            </div>
+            <div id="beat-dots" class="beat-dots" aria-hidden="true"></div>
+          </div>
+
+          <div class="metronome-controls">
+            <div class="tempo-control">
+              <div class="control-label">
+                <label for="bpm-number">Tempo</label>
+                <div><input id="bpm-number" type="number" min="40" max="220" value="90" inputmode="numeric" /><span>BPM</span></div>
+              </div>
+              <input id="bpm-range" type="range" min="40" max="220" value="90" aria-label="Tempo in beats per minute" />
+            </div>
+
+            <div class="player-actions">
+              <label for="beats-per-chord">Beats per chord
+                <select id="beats-per-chord">
+                  <option value="1">1 beat</option>
+                  <option value="2">2 beats</option>
+                  <option value="4" selected>4 beats</option>
+                  <option value="8">8 beats</option>
+                </select>
+              </label>
+              <button id="metronome-toggle" class="play-button" type="button" aria-pressed="false">
+                <span aria-hidden="true">▶</span> Start metronome
+              </button>
+            </div>
+          </div>
+          <p id="audio-help" class="audio-help" aria-live="polite">The first beat of every chord is accented. Audio starts only after you press Start.</p>
+        </section>
+      </div>
+    </main>
+
+    <script src="music-data.js"></script>
+    <script src="practice.js"></script>
+  </body>
+</html>

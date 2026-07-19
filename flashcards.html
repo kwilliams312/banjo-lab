@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Interactive flash cards for memorizing the diatonic chords in every major key." />
+    <title>Chords in a Key Flash Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="flashcards.css" />
+  </head>
+  <body>
+    <main class="flash-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <div>
+          <a href="index.html">Circle</a>
+          <a href="practice.html?key=1">Chord Practice</a>
+          <a href="rolls.html">Roll Library</a>
+          <a href="flashcards.html" aria-current="page">Flash Cards</a>
+          <a href="terms.html">Music Terms</a>
+        </div>
+      </nav>
+
+      <header class="flash-hero">
+        <p class="eyebrow">Harmony memory trainer</p>
+        <h1>Chords in a Key</h1>
+        <p class="intro">
+          Name the chord that belongs to each Roman numeral. Include minor or diminished quality when needed.
+        </p>
+      </header>
+
+      <div class="flash-layout">
+        <aside class="study-settings" aria-labelledby="study-settings-title">
+          <p class="section-kicker">Study setup</p>
+          <h2 id="study-settings-title">Choose your key</h2>
+
+          <label for="study-key">Key set</label>
+          <select id="study-key"></select>
+          <p id="study-key-help">Start with one key, then choose All keys for mixed review.</p>
+
+          <dl class="score-board" aria-label="Quiz score">
+            <div><dt>Correct</dt><dd id="score-correct">0</dd></div>
+            <div><dt>Attempts</dt><dd id="score-attempts">0</dd></div>
+            <div><dt>Streak</dt><dd id="score-streak">0</dd></div>
+          </dl>
+
+          <div class="quality-guide">
+            <h3>Major-key pattern</h3>
+            <p>I · ii · iii · IV · V · vi · vii°</p>
+          </div>
+        </aside>
+
+        <section class="flash-card" aria-labelledby="flash-question">
+          <div class="card-context">
+            <p>Key of</p>
+            <strong id="flash-key">G major</strong>
+          </div>
+
+          <div class="roman-prompt">
+            <span id="flash-degree" aria-hidden="true">I</span>
+            <h2 id="flash-question">What is the I chord?</h2>
+          </div>
+
+          <form id="answer-form" novalidate>
+            <label for="chord-answer">Your answer</label>
+            <input
+              id="chord-answer"
+              type="text"
+              autocomplete="off"
+              autocapitalize="characters"
+              spellcheck="false"
+              aria-describedby="answer-help answer-feedback"
+              placeholder="Example: Am or F sharp minor"
+            />
+            <p id="answer-help">Symbols and words both work: ♯ or sharp, ♭ or flat, ° or diminished.</p>
+            <p id="answer-feedback" class="answer-feedback" aria-live="polite"></p>
+
+            <div class="flash-actions">
+              <button id="check-answer" class="primary-action" type="submit">Check answer</button>
+              <button id="reveal-answer" class="secondary-action" type="button">Reveal</button>
+              <button id="next-card" class="secondary-action" type="button">Next card <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="music-data.js"></script>
+    <script src="flashcards.js"></script>
+  </body>
+</html>

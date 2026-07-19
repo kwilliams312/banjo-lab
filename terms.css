@@ -1,0 +1,163 @@
+.terms-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.terms-hero {
+  max-width: 820px;
+  margin-bottom: 38px;
+}
+
+.terms-hero h1 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3.6rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.terms-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 64px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.terms-jump a {
+  min-height: 44px;
+  padding: 12px 16px;
+  border-radius: 9px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.terms-jump a:hover {
+  background: var(--paper);
+  color: var(--accent);
+}
+
+.terms-jump a:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+.term-section {
+  scroll-margin-top: 24px;
+}
+
+.term-section + .term-section {
+  margin-top: 76px;
+}
+
+.term-section-heading {
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.term-section-heading h2 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.section-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.term-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.term-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.term-card dt {
+  margin-bottom: 9px;
+  color: var(--ink);
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.term-card dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.featured-term {
+  border-color: var(--accent-soft);
+  background: #fff8ed;
+}
+
+.term-symbol {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 28px;
+  margin-left: 5px;
+  border-radius: 7px;
+  background: var(--dark-ring);
+  color: var(--surface);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  vertical-align: 3px;
+}
+
+@media (max-width: 900px) {
+  .term-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .terms-shell {
+    width: min(100% - 24px, 1180px);
+    padding-top: 24px;
+  }
+
+  .terms-hero {
+    margin-bottom: 30px;
+  }
+
+  .terms-jump {
+    display: grid;
+    margin-bottom: 48px;
+  }
+
+  .term-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .term-section + .term-section {
+    margin-top: 56px;
+  }
+}

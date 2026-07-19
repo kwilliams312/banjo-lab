@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Five essential Scruggs-style banjo roll patterns shown as open-G tablature exercises." />
+    <title>Banjo Roll Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="rolls.css" />
+  </head>
+  <body>
+    <main class="rolls-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <div>
+          <a href="index.html">Circle</a>
+          <a href="practice.html?key=1">Chord Practice</a>
+          <a href="rolls.html" aria-current="page">Roll Library</a>
+          <a href="flashcards.html">Flash Cards</a>
+          <a href="terms.html">Music Terms</a>
+        </div>
+      </nav>
+
+      <header class="rolls-hero">
+        <p class="eyebrow">Scruggs-style foundations</p>
+        <h1>Fingerpicking Roll Library</h1>
+        <p class="intro">
+          Five essential eight-note patterns for thumb, index, and middle finger. Read each measure slowly,
+          keep the eighth notes even, and repeat the G–C–D–G exercise until the motion feels automatic.
+        </p>
+      </header>
+
+      <section class="tab-legend" aria-labelledby="tab-legend-title">
+        <div>
+          <p class="section-kicker">How to read the tab</p>
+          <h2 id="tab-legend-title">Right hand above, strings below</h2>
+        </div>
+        <dl>
+          <div><dt>T</dt><dd>Thumb</dd></div>
+          <div><dt>I</dt><dd>Index</dd></div>
+          <div><dt>M</dt><dd>Middle</dd></div>
+          <div><dt>0</dt><dd>Open string</dd></div>
+        </dl>
+        <p>String 1 is the top tab line; the short 5th-string drone is the bottom line.</p>
+      </section>
+
+      <section class="roll-exercises" aria-labelledby="roll-exercises-title">
+        <div class="rolls-section-heading">
+          <div>
+            <p class="section-kicker">Five exercises</p>
+            <h2 id="roll-exercises-title">Common roll patterns</h2>
+          </div>
+        </div>
+        <section class="roll-metronome" aria-labelledby="roll-metronome-title">
+          <div class="roll-metronome-copy">
+            <p class="section-kicker">Practice pulse</p>
+            <h3 id="roll-metronome-title">Roll metronome</h3>
+            <p>Each click is one beat. Play two tab notes per click to keep every eight-note roll in 4/4 time.</p>
+          </div>
+          <div class="roll-tempo-control">
+            <label for="roll-bpm-number">Tempo</label>
+            <div class="roll-bpm-entry">
+              <input id="roll-bpm-number" type="number" min="40" max="220" step="1" value="80" inputmode="numeric" />
+              <span aria-hidden="true">BPM</span>
+            </div>
+            <input id="roll-bpm-range" type="range" min="40" max="220" step="1" value="80" aria-label="Metronome tempo in beats per minute" />
+          </div>
+          <div class="roll-metronome-action">
+            <div id="roll-beat-dots" class="roll-beat-dots" aria-hidden="true"></div>
+            <p id="roll-metronome-status" class="roll-metronome-status" aria-live="polite">Stopped</p>
+            <button id="roll-metronome-toggle" type="button" aria-pressed="false">
+              <span aria-hidden="true">▶</span> Start metronome
+            </button>
+          </div>
+          <p id="roll-audio-help" class="roll-audio-help" aria-live="polite"></p>
+        </section>
+        <ol id="roll-list" class="roll-list"></ol>
+      </section>
+    </main>
+
+    <script src="rolls.js"></script>
+  </body>
+</html>

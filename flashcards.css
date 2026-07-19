@@ -1,0 +1,303 @@
+.flash-shell {
+  width: min(1080px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.flash-hero {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.flash-hero h1 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3.6rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.section-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.flash-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.study-settings,
+.flash-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.study-settings {
+  padding: 26px;
+}
+
+.study-settings h2 {
+  margin: 0 0 26px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.study-settings > label,
+#answer-form > label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+#study-key,
+#chord-answer {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+}
+
+#study-key {
+  padding: 0 12px;
+}
+
+#study-key-help,
+#answer-help {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.score-board {
+  display: grid;
+  gap: 10px;
+  margin: 28px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.score-board div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.score-board dt,
+.score-board dd {
+  margin: 0;
+}
+
+.score-board dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.score-board dd {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.quality-guide h3 {
+  margin: 0 0 7px;
+  font-size: 0.72rem;
+}
+
+.quality-guide p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.flash-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 560px;
+  padding: 38px;
+}
+
+.card-context {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.card-context p,
+.card-context strong {
+  margin: 0;
+}
+
+.card-context p {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.card-context strong {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.roman-prompt {
+  padding: 38px 0;
+  text-align: center;
+}
+
+#flash-degree {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(5rem, 12vw, 8rem);
+  line-height: 0.8;
+}
+
+.roman-prompt h2 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+#chord-answer {
+  padding: 0 14px;
+  font-size: 1rem;
+}
+
+#study-key:focus-visible,
+#chord-answer:focus-visible,
+.flash-actions button:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 3px;
+}
+
+#chord-answer[aria-invalid="true"] {
+  border-color: #a34132;
+}
+
+.answer-feedback {
+  min-height: 22px;
+  margin: 10px 0 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.answer-feedback.is-correct {
+  color: #42683c;
+}
+
+.answer-feedback.is-incorrect {
+  color: #96392d;
+}
+
+.answer-feedback.is-revealed {
+  color: var(--muted);
+}
+
+.flash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.flash-actions button {
+  min-height: 44px;
+  padding: 0 15px;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-action {
+  border: 1px solid var(--accent);
+  color: var(--surface);
+  background: var(--accent);
+}
+
+.secondary-action {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.flash-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .flash-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .study-settings {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px 24px;
+  }
+
+  .study-settings .section-kicker,
+  .study-settings h2,
+  .score-board,
+  .quality-guide {
+    grid-column: 1 / -1;
+  }
+
+  .study-settings h2 {
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 560px) {
+  .flash-shell {
+    width: min(100% - 24px, 1080px);
+    padding-top: 24px;
+  }
+
+  .flash-hero {
+    margin-bottom: 44px;
+  }
+
+  .study-settings {
+    display: block;
+  }
+
+  .flash-card {
+    min-height: 520px;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .flash-actions button {
+    flex: 1 1 120px;
+  }
+}

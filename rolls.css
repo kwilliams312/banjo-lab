@@ -1,0 +1,468 @@
+.rolls-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.rolls-hero {
+  max-width: 850px;
+  margin-bottom: 56px;
+}
+
+.rolls-hero h1 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3.6rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.section-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tab-legend {
+  display: grid;
+  grid-template-columns: minmax(230px, 1fr) minmax(320px, 1.3fr);
+  gap: 24px 48px;
+  align-items: center;
+  margin-bottom: 72px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.tab-legend h2,
+.rolls-section-heading h2 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.tab-legend dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 0;
+}
+
+.tab-legend dl div {
+  padding: 10px;
+  border-radius: 9px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.tab-legend dt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.tab-legend dd {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.tab-legend > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-wrap: pretty;
+}
+
+.rolls-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.roll-metronome {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.3fr) minmax(230px, 1fr) auto;
+  gap: 24px 36px;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.roll-metronome-copy h3 {
+  margin: 0 0 5px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.roll-metronome-copy > p:last-child {
+  max-width: 490px;
+  margin: 0;
+  color: #d7d3c8;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.roll-tempo-control label {
+  display: block;
+  margin-bottom: 6px;
+  color: #d7d3c8;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.roll-bpm-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.roll-bpm-entry input {
+  width: 88px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid #68645c;
+  border-radius: 9px;
+  background: #fffdf7;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.roll-bpm-entry span {
+  color: #d7d3c8;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.roll-tempo-control input[type="range"] {
+  width: 100%;
+  min-height: 30px;
+  margin-top: 4px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.roll-metronome-action {
+  display: grid;
+  justify-items: center;
+  min-width: 176px;
+}
+
+.roll-beat-dots {
+  display: flex;
+  gap: 8px;
+  min-height: 12px;
+  margin-bottom: 4px;
+}
+
+.roll-beat-dot {
+  width: 9px;
+  height: 9px;
+  border: 1px solid #aaa59a;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0.7;
+  transition: opacity 80ms ease, transform 80ms ease, background-color 80ms ease;
+}
+
+.roll-beat-dot.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+  transform: scale(1.28);
+}
+
+.roll-beat-dot.is-downbeat {
+  border-color: #fffdf7;
+}
+
+.roll-metronome-status {
+  min-height: 1.1em;
+  margin: 0 0 7px;
+  color: #d7d3c8;
+  font-size: 0.62rem;
+}
+
+#roll-metronome-toggle {
+  min-width: 176px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fffdf7;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#roll-metronome-toggle:hover {
+  filter: brightness(1.08);
+}
+
+#roll-metronome-toggle:focus-visible,
+.roll-metronome input:focus-visible {
+  outline: 3px solid #fffdf7;
+  outline-offset: 3px;
+}
+
+.roll-audio-help {
+  grid-column: 1 / -1;
+  min-height: 1em;
+  margin: -14px 0 0;
+  color: #ffd2c5;
+  font-size: 0.68rem;
+}
+
+.roll-list {
+  display: grid;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: roll;
+}
+
+.roll-exercise {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  counter-increment: roll;
+}
+
+.roll-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.roll-heading h3 {
+  margin: 0 0 6px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.roll-heading h3::before {
+  margin-right: 10px;
+  color: var(--accent);
+  content: counter(roll, decimal-leading-zero);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.roll-heading p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.roll-sequence {
+  min-width: 245px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--paper);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.55;
+}
+
+.roll-sequence b {
+  display: block;
+  color: var(--accent);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+}
+
+.tab-exercise {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.tab-measure {
+  min-width: 210px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.tab-measure h4 {
+  margin: 0 0 11px;
+  color: var(--ink);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.finger-row,
+.tab-line {
+  display: grid;
+  grid-template-columns: 20px repeat(8, minmax(18px, 1fr));
+  align-items: center;
+}
+
+.finger-row {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.tab-line-label {
+  color: var(--muted);
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.tab-cell {
+  display: grid;
+  place-items: center;
+  min-height: 25px;
+  border-top: 1px solid #a8a49a;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.64rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tab-note {
+  min-width: 13px;
+  padding: 0 2px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.exercise-tip {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .tab-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-legend > p {
+    grid-column: auto;
+  }
+
+  .roll-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .roll-sequence {
+    min-width: 0;
+  }
+
+  .roll-metronome {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .roll-metronome-copy {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .rolls-shell {
+    width: min(100% - 24px, 1180px);
+    padding-top: 24px;
+  }
+
+  .rolls-hero {
+    margin-bottom: 44px;
+  }
+
+  .tab-legend {
+    margin-bottom: 48px;
+    padding: 20px;
+  }
+
+  .tab-legend dl {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rolls-section-heading {
+    align-items: start;
+  }
+
+  .roll-metronome {
+    grid-template-columns: 1fr;
+    padding: 22px 20px;
+  }
+
+  .roll-metronome-copy {
+    grid-column: auto;
+  }
+
+  .roll-metronome-action {
+    justify-items: stretch;
+  }
+
+  .roll-beat-dots {
+    justify-content: center;
+  }
+
+  .roll-metronome-status {
+    text-align: center;
+  }
+
+  #roll-metronome-toggle {
+    width: 100%;
+  }
+
+  .roll-audio-help {
+    grid-column: auto;
+    margin-top: -10px;
+  }
+
+  .roll-exercise {
+    padding: 20px;
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roll-beat-dot {
+    transition: none;
+  }
+}
