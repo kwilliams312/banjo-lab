@@ -18,13 +18,19 @@
     <main class="flash-shell">
       <nav class="site-nav" aria-label="Primary navigation">
         <a class="site-brand" href="index.html">Banjo Lab</a>
-        <div>
+        <div class="site-nav-links">
           <a href="circle.html">Circle</a>
-          <a href="chords.html">Chord Chart</a>
-          <a href="practice.html?key=1">Chord Practice</a>
+          <details class="nav-menu">
+            <summary aria-current="true">Chords</summary>
+            <div class="nav-submenu">
+              <a href="chords.html">Chord Chart</a>
+              <a href="practice.html?key=1">Chord Practice</a>
+              <a href="flashcards.html" aria-current="page">Flash Cards</a>
+            </div>
+          </details>
+          <a href="scales.html">Scales</a>
           <a href="songs.html">Song Practice</a>
           <a href="rolls.html">Roll Library</a>
-          <a href="flashcards.html" aria-current="page">Flash Cards</a>
           <a href="terms.html">Music Terms</a>
         </div>
       </nav>
