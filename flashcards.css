@@ -140,32 +140,53 @@
 }
 
 .card-context {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--line);
-}
-
-.card-context p,
-.card-context strong {
-  margin: 0;
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: var(--dark-ring);
+  color: var(--surface);
 }
 
 .card-context p {
-  color: var(--muted);
-  font-size: 0.72rem;
+  margin: 0;
+}
+
+.context-label {
+  margin-bottom: 7px !important;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
-.card-context strong {
-  color: var(--accent);
-  font-size: 0.9rem;
+.key-statement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  color: #d7d3c8;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.key-statement strong {
+  color: var(--surface);
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.context-hint {
+  margin-top: 12px !important;
+  color: #d7d3c8;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  text-wrap: pretty;
 }
 
 .roman-prompt {
-  padding: 38px 0;
+  padding: 32px 0;
   text-align: center;
 }
 
@@ -179,9 +200,10 @@
 
 .roman-prompt h2 {
   margin: 0;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 600;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
   text-wrap: balance;
 }
 
@@ -295,6 +317,10 @@
     min-height: 520px;
     padding: 24px;
     border-radius: 16px;
+  }
+
+  .card-context {
+    padding: 20px;
   }
 
   .flash-actions button {

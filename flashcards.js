@@ -96,7 +96,7 @@ function renderCard() {
   const degree = degrees[currentDegreeIndex];
   flashKey.textContent = `${key.major} major`;
   flashDegree.textContent = degree;
-  flashQuestion.textContent = `What is the ${degree} chord?`;
+  flashQuestion.textContent = `In ${key.major} major, what is the ${degree} chord?`;
   chordAnswer.value = "";
   chordAnswer.removeAttribute("aria-invalid");
   answerFeedback.textContent = "";

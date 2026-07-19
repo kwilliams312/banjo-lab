@@ -58,8 +58,9 @@
 
         <section class="flash-card" aria-labelledby="flash-question">
           <div class="card-context">
-            <p>Key of</p>
-            <strong id="flash-key">G major</strong>
+            <p class="context-label">Current key</p>
+            <p class="key-statement"><span>Key of</span> <strong id="flash-key">G major</strong></p>
+            <p class="context-hint">Use this key to identify the chord below.</p>
           </div>
 
           <div class="roman-prompt">
@@ -75,7 +76,7 @@
               autocomplete="off"
               autocapitalize="characters"
               spellcheck="false"
-              aria-describedby="answer-help answer-feedback"
+              aria-describedby="flash-question answer-help answer-feedback"
               placeholder="Example: Am or F sharp minor"
             />
             <p id="answer-help">Symbols and words both work: ♯ or sharp, ♭ or flat, ° or diminished.</p>
