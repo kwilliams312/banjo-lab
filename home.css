@@ -7,6 +7,7 @@
 .site-nav a.site-brand[aria-current="page"] {
   color: var(--ink);
   background: transparent;
+  font-weight: 400;
 }
 
 .home-hero {
@@ -25,7 +26,7 @@
 .home-hero h1 {
   margin: 0;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(3.6rem, 6vw, 5.5rem);
+  font-size: clamp(calc(3.6rem + 10px), calc(6vw + 10px), calc(5.5rem + 10px));
   font-weight: 400;
   line-height: 0.82;
   text-wrap: balance;
@@ -40,7 +41,7 @@
   margin: 18px 0 0;
   color: var(--muted);
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+  font-size: clamp(calc(1.7rem + 10px), calc(3.5vw + 10px), calc(2.7rem + 10px));
   line-height: 1;
   text-wrap: balance;
 }
@@ -377,7 +378,7 @@
   }
 
   .home-hero h1 {
-    font-size: clamp(3.25rem, 16vw, 4.5rem);
+    font-size: clamp(calc(3.25rem + 10px), calc(16vw + 10px), calc(4.5rem + 10px));
   }
 
   .home-intro,
