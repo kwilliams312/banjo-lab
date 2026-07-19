@@ -60,6 +60,23 @@
   text-wrap: pretty;
 }
 
+.song-rights-note {
+  margin: 0 30px 24px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  background: var(--paper);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.song-rights-note a {
+  color: var(--ink);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
 .category-tabs {
   display: flex;
   gap: 7px;
@@ -519,6 +536,11 @@
 
   .song-panel {
     padding: 22px 18px;
+  }
+
+  .song-rights-note {
+    margin-right: 18px;
+    margin-left: 18px;
   }
 
   .song-facts {
