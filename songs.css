@@ -132,7 +132,7 @@
 
 .song-facts {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   margin: 0;
 }
@@ -186,14 +186,42 @@
   text-wrap: balance;
 }
 
-.song-heading > p {
+.song-description-wrap {
   max-width: 480px;
+  text-align: right;
+}
+
+.song-description-wrap p {
   margin: 0;
   color: var(--muted);
   font-size: 0.72rem;
   line-height: 1.55;
-  text-align: right;
   text-wrap: pretty;
+}
+
+.song-description-wrap a,
+.song-pdf-actions a,
+.licensed-song-note a {
+  color: #9a5d21;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.song-description-wrap a {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.7rem;
+}
+
+.song-description-wrap a[hidden] {
+  display: none;
+}
+
+.song-description-wrap a:focus-visible,
+.song-pdf-actions a:focus-visible,
+.licensed-song-note a:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 3px;
 }
 
 .song-metronome {
@@ -389,6 +417,35 @@
   gap: 9px;
 }
 
+.song-tab-strip.is-pdf {
+  display: block;
+}
+
+.song-pdf-viewer {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.song-pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.72rem;
+}
+
+.song-pdf-frame {
+  display: block;
+  width: 100%;
+  height: min(78dvh, 900px);
+  min-height: 620px;
+  border: 0;
+  background: #fff;
+}
+
 .song-tab-measure {
   min-width: 0;
   padding: 14px;
@@ -501,7 +558,7 @@
   }
 
   .library-heading > p,
-  .song-heading > p,
+  .song-description-wrap,
   .tab-heading > p {
     margin-top: 10px;
     text-align: left;
@@ -557,6 +614,11 @@
 
   .licensed-song-note {
     padding: 22px;
+  }
+
+  .song-pdf-frame {
+    height: 70dvh;
+    min-height: 520px;
   }
 }
 
