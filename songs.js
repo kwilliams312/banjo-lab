@@ -1,30 +1,6 @@
 const songLibrary = {
   folk: [
     {
-      title: "Sweet Amarillo",
-      source: "Old Crow Medicine Show · Happy Banjo Dude PDF",
-      description: "A complete two-page waltz arrangement with easy and intermediate picking patterns, bridge, and ending.",
-      bpm: 72,
-      key: "G major",
-      timeSignature: "3/4",
-      beatsPerMeasure: 3,
-      difficulty: "Beginner",
-      pdfUrl: "https://cdn.shopify.com/s/files/1/0150/5868/files/SweetAmarilloBanjoTab.pdf?5519664262313822253",
-      sourceUrl: "https://happybanjodude.com/pages/tabs",
-    },
-    {
-      title: "Swept Away",
-      source: "The Avett Brothers · Happy Banjo Dude PDF",
-      description: "A complete six-page melodic arrangement in open-G tuning. Slow the metronome down and give the eighth notes a relaxed swing.",
-      bpm: 72,
-      key: "Open G",
-      timeSignature: "4/4",
-      beatsPerMeasure: 4,
-      difficulty: "Intermediate",
-      pdfUrl: "https://cdn.shopify.com/s/files/1/0150/5868/files/SweptAwayBanjoTab.pdf?741",
-      sourceUrl: "https://happybanjodude.com/pages/tabs",
-    },
-    {
       title: "Man of Constant Sorrow",
       source: "Traditional song · beginner G study",
       description: "Hold an even roll through the repeated G measures, then prepare the C and D7 changes without breaking tempo.",
@@ -144,20 +120,11 @@ const songPanel = document.querySelector("#song-panel");
 const songSelect = document.querySelector("#song-select");
 const songKey = document.querySelector("#song-key");
 const songTempo = document.querySelector("#song-tempo");
-const songTime = document.querySelector("#song-time");
-const songDifficulty = document.querySelector("#song-difficulty");
 const songSource = document.querySelector("#song-source");
-const songSourceLink = document.querySelector("#song-source-link");
 const songTitle = document.querySelector("#song-title");
 const songDescription = document.querySelector("#song-description");
 const songProgression = document.querySelector("#song-progression");
-const progressionSection = document.querySelector("#progression-section");
 const songTab = document.querySelector("#song-tab");
-const songTabKicker = document.querySelector("#song-tab-kicker");
-const songTabTitle = document.querySelector("#song-tab-title");
-const songTabHelp = document.querySelector("#song-tab-help");
-const songMetronomeKicker = document.querySelector("#song-metronome-kicker");
-const songMetronomeNote = document.querySelector("#song-metronome-note");
 const bpmNumber = document.querySelector("#song-bpm-number");
 const bpmRange = document.querySelector("#song-bpm-range");
 const metronomeToggle = document.querySelector("#song-metronome-toggle");
@@ -184,14 +151,13 @@ function syncBpm(value) {
   const bpm = clampBpm(value);
   bpmNumber.value = String(bpm);
   bpmRange.value = String(bpm);
-  if (metronomeRunning) metronomeStatus.textContent = activeSong.pdfUrl ? `Playing at ${bpm} BPM` : `Playing at ${bpm} BPM · measure ${scheduledMeasure + 1}`;
+  if (metronomeRunning) metronomeStatus.textContent = `Playing at ${bpm} BPM · measure ${scheduledMeasure + 1}`;
   return bpm;
 }
 
 function renderBeatDots(activeBeat = -1) {
-  const beatCount = activeSong.beatsPerMeasure || 4;
   beatDots.replaceChildren(
-    ...Array.from({ length: beatCount }, (_, beat) => {
+    ...Array.from({ length: 4 }, (_, beat) => {
       const dot = document.createElement("i");
       dot.className = "song-beat-dot";
       if (beat === 0) dot.classList.add("is-downbeat");
@@ -211,35 +177,7 @@ function setToggleContent(running) {
 
 function setActiveMeasure(measureIndex = -1) {
   [...songProgression.children].forEach((measure, index) => measure.classList.toggle("is-active", index === measureIndex));
-  if (activeSong.pdfUrl) return;
   [...songTab.children].forEach((measure, index) => measure.classList.toggle("is-active", index === measureIndex));
-}
-
-function createPdfTab(song) {
-  const viewer = document.createElement("div");
-  const actions = document.createElement("div");
-  const openPdf = document.createElement("a");
-  const browseLibrary = document.createElement("a");
-  const frame = document.createElement("iframe");
-
-  viewer.className = "song-pdf-viewer";
-  actions.className = "song-pdf-actions";
-  openPdf.href = song.pdfUrl;
-  openPdf.target = "_blank";
-  openPdf.rel = "noopener";
-  openPdf.textContent = `Open ${song.title} PDF`;
-  browseLibrary.href = song.sourceUrl;
-  browseLibrary.target = "_blank";
-  browseLibrary.rel = "noopener";
-  browseLibrary.textContent = "Browse all Happy Banjo Dude tabs";
-  actions.append(openPdf, browseLibrary);
-
-  frame.className = "song-pdf-frame";
-  frame.src = song.pdfUrl;
-  frame.title = `${song.title} banjo tablature PDF`;
-  frame.loading = "lazy";
-  viewer.append(actions, frame);
-  return viewer;
 }
 
 function createTabMeasure(chordName, measureIndex) {
@@ -300,37 +238,20 @@ function createTabMeasure(chordName, measureIndex) {
 }
 
 function renderSong() {
-  const isPdfSong = Boolean(activeSong.pdfUrl);
-  songKey.textContent = activeSong.key || (activeSong.chords.includes("Em") ? "G / E minor" : "G major");
-  songTime.textContent = activeSong.timeSignature || "4/4";
-  songDifficulty.textContent = activeSong.difficulty || "Beginner";
+  songKey.textContent = activeSong.chords.includes("Em") ? "G / E minor" : "G major";
   songTempo.textContent = `${activeSong.bpm} BPM`;
   songSource.textContent = activeSong.source;
   songTitle.textContent = activeSong.title;
   songDescription.textContent = activeSong.description;
-  songSourceLink.hidden = !activeSong.sourceUrl;
-  if (activeSong.sourceUrl) songSourceLink.href = activeSong.sourceUrl;
-  progressionSection.hidden = isPdfSong;
   songProgression.replaceChildren(
-    ...(activeSong.chords || []).map((chord, index) => {
+    ...activeSong.chords.map((chord, index) => {
       const item = document.createElement("li");
       item.textContent = `${index + 1} · ${chord}`;
       return item;
     }),
   );
-  songTab.classList.toggle("is-pdf", isPdfSong);
-  songTabKicker.textContent = isPdfSong ? "Complete Happy Banjo Dude arrangement" : "Forward roll · T I M T I M T M";
-  songTabTitle.textContent = isPdfSong ? "PDF tablature" : "Accompaniment tab";
-  songTabHelp.textContent = isPdfSong ? "Use the controls above to set a comfortable practice tempo." : "Play two evenly spaced tab notes per metronome click.";
-  songMetronomeKicker.textContent = `${activeSong.beatsPerMeasure || 4} beats per measure`;
-  songMetronomeNote.textContent = isPdfSong
-    ? `The higher click marks beat one in each ${activeSong.timeSignature} measure; follow the notation in the PDF below.`
-    : "The higher click marks beat one; the active tab measure advances every four clicks.";
-  songTab.replaceChildren(
-    ...(isPdfSong ? [createPdfTab(activeSong)] : activeSong.chords.map((chord, index) => createTabMeasure(chord, index))),
-  );
+  songTab.replaceChildren(...activeSong.chords.map((chord, index) => createTabMeasure(chord, index)));
   syncBpm(activeSong.bpm);
-  renderBeatDots();
   setActiveMeasure();
 }
 
@@ -378,10 +299,7 @@ function scheduleVisual(time, beat, measure) {
   timer = window.setTimeout(() => {
     renderBeatDots(beat);
     setActiveMeasure(measure);
-    if (beat === 0) {
-      const bpm = clampBpm(bpmNumber.value);
-      metronomeStatus.textContent = activeSong.pdfUrl ? `Playing at ${bpm} BPM` : `Playing at ${bpm} BPM · measure ${measure + 1}`;
-    }
+    if (beat === 0) metronomeStatus.textContent = `Playing at ${clampBpm(bpmNumber.value)} BPM · measure ${measure + 1}`;
     visualTimers = visualTimers.filter((pendingTimer) => pendingTimer !== timer);
   }, delay);
   visualTimers.push(timer);
@@ -394,9 +312,9 @@ function scheduler() {
     scheduleVisual(nextClickTime, scheduledBeat, scheduledMeasure);
     nextClickTime += 60 / bpm;
     scheduledBeat += 1;
-    if (scheduledBeat === (activeSong.beatsPerMeasure || 4)) {
+    if (scheduledBeat === 4) {
       scheduledBeat = 0;
-      scheduledMeasure = activeSong.chords ? (scheduledMeasure + 1) % activeSong.chords.length : 0;
+      scheduledMeasure = (scheduledMeasure + 1) % activeSong.chords.length;
     }
   }
 }
@@ -427,7 +345,7 @@ async function startMetronome() {
   scheduledBeat = 0;
   scheduledMeasure = 0;
   nextClickTime = audioContext.currentTime + 0.05;
-  metronomeStatus.textContent = activeSong.pdfUrl ? `Playing at ${bpm} BPM` : `Playing at ${bpm} BPM · measure 1`;
+  metronomeStatus.textContent = `Playing at ${bpm} BPM · measure 1`;
   setToggleContent(true);
   scheduler();
   schedulerTimer = window.setInterval(scheduler, 25);
