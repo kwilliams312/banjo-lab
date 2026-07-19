@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="An interactive banjo circle of fifths with movable major chord shapes in standard open G tuning."
+      content="Banjo Lab is an interactive learning space for open-G five-string banjo theory, chord shapes, picking rolls, songs, and practice tools."
     />
-    <title>Banjo Lab · Circle of Fifths</title>
+    <title>Banjo Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
-    <main class="page-shell">
+    <main class="home-shell">
       <nav class="site-nav" aria-label="Primary navigation">
-        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <a class="site-brand" href="index.html" aria-current="page">Banjo Lab</a>
         <div>
-          <a href="index.html" aria-current="page">Circle</a>
+          <a href="circle.html">Circle</a>
           <a href="chords.html">Chord Chart</a>
           <a href="practice.html?key=1">Chord Practice</a>
           <a href="songs.html">Song Practice</a>
@@ -31,122 +32,90 @@
         </div>
       </nav>
 
-      <header class="hero">
-        <p class="eyebrow">5-string banjo · Open G tuning</p>
-        <p class="intro">
-          Drag the wheel to turn it. Select any key to explore its harmony,
-          pentatonic scales, and three movable major-chord shapes on the banjo neck.
-        </p>
+      <header class="home-hero">
+        <div class="home-hero-copy">
+          <p class="eyebrow">Music theory for 5-string banjo</p>
+          <h1>Banjo Lab</h1>
+          <p class="home-tagline">See the key. Find the chord. Play the song.</p>
+          <p class="intro">
+            Banjo Lab connects music theory to the open-G fretboard. Explore how keys and chords relate, learn
+            practical shapes, then build timing through rolls, progressions, and familiar songs.
+          </p>
+          <div class="home-actions">
+            <a class="home-primary-action" href="circle.html">Start with G <span aria-hidden="true">→</span></a>
+            <a class="home-secondary-action" href="songs.html">Practice a song</a>
+          </div>
+        </div>
+
+        <div class="home-compass" aria-hidden="true">
+          <span class="compass-note note-g">G</span>
+          <span class="compass-note note-c">C</span>
+          <span class="compass-note note-d">D</span>
+          <span class="compass-note note-em">Em</span>
+          <span class="compass-note note-am">Am</span>
+          <div class="compass-center">
+            <small>Open G</small>
+            <strong>gDGBD</strong>
+            <span>Home</span>
+          </div>
+        </div>
       </header>
 
-      <section class="workspace" aria-label="Interactive circle of fifths">
-        <div class="chart-column">
-          <div class="chart-stage">
-            <div class="position-marker" aria-hidden="true">
-              <span></span>
-            </div>
-            <div class="chart-title">
-              <h1><span>Banjo</span><span>Circle of</span><span>Fifths</span></h1>
-            </div>
-            <svg
-              id="circle-chart"
-              class="circle-chart"
-              viewBox="0 0 640 640"
-              role="group"
-              aria-label="Draggable circle of fifths. Use the rotate buttons or arrow keys to turn the chart."
-            >
-              <g id="rotating-wheel"></g>
-              <circle class="hub" cx="320" cy="320" r="91" />
-            </svg>
-          </div>
-
-          <div class="chart-controls" aria-label="Chart rotation controls">
-            <button id="rotate-left" class="icon-button" type="button" aria-label="Rotate counterclockwise">
-              <span aria-hidden="true">←</span>
-            </button>
-            <p><strong>Drag to rotate</strong><span>or use arrow keys</span></p>
-            <button id="rotate-right" class="icon-button" type="button" aria-label="Rotate clockwise">
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
+      <section class="home-intro" aria-labelledby="home-intro-title">
+        <div>
+          <p class="section-kicker">One connected workspace</p>
+          <h2 id="home-intro-title">Theory you can put under your fingers</h2>
         </div>
-
-        <aside class="key-card" aria-live="polite" aria-atomic="true">
-          <p class="card-label">Selected key</p>
-          <div class="key-heading">
-            <span id="key-name">G</span>
-            <div>
-              <strong>Major</strong>
-              <small id="minor-name">E minor</small>
-            </div>
-          </div>
-
-          <a id="practice-link" class="practice-link" href="practice.html?key=1"><span id="practice-link-label">Practice G major</span><span aria-hidden="true">→</span></a>
-
-          <dl class="key-facts">
-            <div>
-              <dt>Key signature</dt>
-              <dd id="signature">1 sharp</dd>
-            </div>
-            <div>
-              <dt>Dominant</dt>
-              <dd id="dominant">D major</dd>
-            </div>
-            <div>
-              <dt>Subdominant</dt>
-              <dd id="subdominant">C major</dd>
-            </div>
-          </dl>
-
-          <section class="degrees" aria-labelledby="degrees-title">
-            <div class="degrees-heading">
-              <h2 id="degrees-title">Diatonic chords</h2>
-              <span>Major key</span>
-            </div>
-            <ol id="degree-list" aria-label="Scale degree chords"></ol>
-          </section>
-
-          <section class="pentatonic" aria-labelledby="pentatonic-title">
-            <h2 id="pentatonic-title">Pentatonic scales</h2>
-            <div id="pentatonic-list"></div>
-          </section>
-
-          <div class="legend" aria-label="Chart legend">
-            <span><i class="major-dot"></i>Major keys</span>
-            <span><i class="minor-dot"></i>Relative minors</span>
-          </div>
-        </aside>
-      </section>
-
-      <section class="banjo-section" aria-labelledby="banjo-title" aria-describedby="banjo-note">
-        <div class="banjo-heading">
-          <div>
-            <p class="card-label">On the neck</p>
-            <h2 id="banjo-title">Banjo chords in <span id="banjo-key-name">G major</span></h2>
-          </div>
-          <p>Movable voicings on strings 4–1</p>
-        </div>
-
-        <div id="chord-tabs" class="chord-tabs" role="tablist" aria-label="Diatonic chords in the selected key"></div>
-
-        <div id="chord-panel" class="chord-panel" role="tabpanel" tabindex="0">
-          <div class="chord-panel-heading">
-            <p>Selected chord</p>
-            <h3>Three shapes for <span id="banjo-chord-name">G major</span></h3>
-          </div>
-          <div id="banjo-shapes" class="banjo-shapes"></div>
-        </div>
-
-        <p id="banjo-note" class="banjo-note">
-          Standard tuning: <strong>gDGBD</strong>. Diagrams show the four long strings, 4th to 1st.
-          Dot numbers indicate recommended left-hand fingering: <strong>1 index · 2 middle · 3 ring · 4 pinky</strong>.
-          The short 5th-string G drone is omitted; use it when it suits the chord or key, or adjust it with a spike, capo, or tuning.
-          Fingering may vary with the surrounding chord change.
+        <p>
+          Music theory is universal; Banjo Lab makes it instrument-specific. Every concept leads back to a chord
+          shape, picking pattern, or timed exercise you can play on a five-string banjo.
         </p>
       </section>
-    </main>
 
-    <script src="music-data.js"></script>
-    <script src="script.js"></script>
+      <section class="learning-path" aria-labelledby="learning-path-title">
+        <div class="path-heading">
+          <p class="section-kicker">A simple learning path</p>
+          <h2 id="learning-path-title">Begin anywhere. Keep the ideas connected.</h2>
+        </div>
+
+        <ol class="path-grid">
+          <li>
+            <span class="path-number">01</span>
+            <h3>Understand the key</h3>
+            <p>Turn the Circle of Fifths to see the scale, relative minor, diatonic chords, dominant, and subdominant.</p>
+            <a href="circle.html">Explore the Circle <span aria-hidden="true">→</span></a>
+          </li>
+          <li>
+            <span class="path-number">02</span>
+            <h3>Learn the shapes</h3>
+            <p>Connect chord names to open-G voicings, movable barre, F, and D shapes, and recommended fingering.</p>
+            <a href="chords.html">Open the Chord Chart <span aria-hidden="true">→</span></a>
+          </li>
+          <li>
+            <span class="path-number">03</span>
+            <h3>Build steady timing</h3>
+            <p>Practice progressions, forward rolls, and beginner songs with synchronized, adjustable metronomes.</p>
+            <a href="practice.html?key=1">Enter Chord Practice <span aria-hidden="true">→</span></a>
+          </li>
+        </ol>
+      </section>
+
+      <section class="home-tools" aria-labelledby="home-tools-title">
+        <div class="tools-copy">
+          <p class="section-kicker">Keep growing</p>
+          <h2 id="home-tools-title">Train your hands, ears, and memory</h2>
+          <p>
+            Use the Roll Library for right-hand vocabulary, Song Practice to connect measures, Flash Cards to
+            recall chords in a key, and Music Terms whenever the language is unfamiliar.
+          </p>
+        </div>
+        <div class="tool-links">
+          <a href="rolls.html"><strong>Roll Library</strong><span>Five foundational picking patterns</span></a>
+          <a href="songs.html"><strong>Song Practice</strong><span>Folk, bluegrass, and religious studies</span></a>
+          <a href="flashcards.html"><strong>Flash Cards</strong><span>Recall chords by key and scale degree</span></a>
+          <a href="terms.html"><strong>Music Terms</strong><span>Plain-language theory reference</span></a>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

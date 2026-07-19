@@ -385,15 +385,12 @@
 
 .song-tab-strip {
   display: grid;
-  grid-template-columns: repeat(8, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 9px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scrollbar-width: thin;
 }
 
 .song-tab-measure {
-  min-width: 220px;
+  min-width: 0;
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 12px;

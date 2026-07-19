@@ -93,8 +93,13 @@ svg {
   margin-bottom: 30px;
 }
 
+.hero h1 {
+  font-size: clamp(2.9rem, 6.5vw, 5rem);
+  line-height: 0.92;
+}
+
 .hero .intro {
-  margin-top: 0;
+  margin-top: 18px;
 }
 
 .eyebrow,
@@ -266,18 +271,20 @@ h1 {
   pointer-events: none;
 }
 
-.chart-title h1 {
+.chart-title p {
   display: flex;
   flex-direction: column;
   margin: 0;
   color: var(--ink);
+  font-family: "Instrument Serif", Georgia, serif;
   font-size: clamp(1rem, 3.3vw, 1.7rem);
+  font-weight: 400;
   line-height: 0.9;
   text-align: center;
   text-wrap: balance;
 }
 
-.chart-title h1 span:nth-child(2) {
+.chart-title p span:nth-child(2) {
   margin: 5px 0 4px;
   color: var(--accent);
   font-family: "DM Sans", system-ui, sans-serif;

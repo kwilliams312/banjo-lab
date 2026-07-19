@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="An interactive banjo circle of fifths with movable major chord shapes in standard open G tuning."
+    />
+    <title>Banjo Lab · Circle of Fifths</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <div>
+          <a href="circle.html" aria-current="page">Circle</a>
+          <a href="chords.html">Chord Chart</a>
+          <a href="practice.html?key=1">Chord Practice</a>
+          <a href="songs.html">Song Practice</a>
+          <a href="rolls.html">Roll Library</a>
+          <a href="flashcards.html">Flash Cards</a>
+          <a href="terms.html">Music Terms</a>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <p class="eyebrow">5-string banjo · Open G tuning</p>
+        <h1>Banjo Circle of Fifths</h1>
+        <p class="intro">
+          Drag the wheel to turn it. Select any key to explore its harmony,
+          pentatonic scales, and three movable major-chord shapes on the banjo neck.
+        </p>
+      </header>
+
+      <section class="workspace" aria-label="Interactive circle of fifths">
+        <div class="chart-column">
+          <div class="chart-stage">
+            <div class="position-marker" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="chart-title" aria-hidden="true">
+              <p><span>Banjo</span><span>Circle of</span><span>Fifths</span></p>
+            </div>
+            <svg
+              id="circle-chart"
+              class="circle-chart"
+              viewBox="0 0 640 640"
+              role="group"
+              aria-label="Draggable circle of fifths. Use the rotate buttons or arrow keys to turn the chart."
+            >
+              <g id="rotating-wheel"></g>
+              <circle class="hub" cx="320" cy="320" r="91" />
+            </svg>
+          </div>
+
+          <div class="chart-controls" aria-label="Chart rotation controls">
+            <button id="rotate-left" class="icon-button" type="button" aria-label="Rotate counterclockwise">
+              <span aria-hidden="true">←</span>
+            </button>
+            <p><strong>Drag to rotate</strong><span>or use arrow keys</span></p>
+            <button id="rotate-right" class="icon-button" type="button" aria-label="Rotate clockwise">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <aside class="key-card" aria-live="polite" aria-atomic="true">
+          <p class="card-label">Selected key</p>
+          <div class="key-heading">
+            <span id="key-name">G</span>
+            <div>
+              <strong>Major</strong>
+              <small id="minor-name">E minor</small>
+            </div>
+          </div>
+
+          <a id="practice-link" class="practice-link" href="practice.html?key=1"><span id="practice-link-label">Practice G major</span><span aria-hidden="true">→</span></a>
+
+          <dl class="key-facts">
+            <div>
+              <dt>Key signature</dt>
+              <dd id="signature">1 sharp</dd>
+            </div>
+            <div>
+              <dt>Dominant</dt>
+              <dd id="dominant">D major</dd>
+            </div>
+            <div>
+              <dt>Subdominant</dt>
+              <dd id="subdominant">C major</dd>
+            </div>
+          </dl>
+
+          <section class="degrees" aria-labelledby="degrees-title">
+            <div class="degrees-heading">
+              <h2 id="degrees-title">Diatonic chords</h2>
+              <span>Major key</span>
+            </div>
+            <ol id="degree-list" aria-label="Scale degree chords"></ol>
+          </section>
+
+          <section class="pentatonic" aria-labelledby="pentatonic-title">
+            <h2 id="pentatonic-title">Pentatonic scales</h2>
+            <div id="pentatonic-list"></div>
+          </section>
+
+          <div class="legend" aria-label="Chart legend">
+            <span><i class="major-dot"></i>Major keys</span>
+            <span><i class="minor-dot"></i>Relative minors</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="banjo-section" aria-labelledby="banjo-title" aria-describedby="banjo-note">
+        <div class="banjo-heading">
+          <div>
+            <p class="card-label">On the neck</p>
+            <h2 id="banjo-title">Banjo chords in <span id="banjo-key-name">G major</span></h2>
+          </div>
+          <p>Movable voicings on strings 4–1</p>
+        </div>
+
+        <div id="chord-tabs" class="chord-tabs" role="tablist" aria-label="Diatonic chords in the selected key"></div>
+
+        <div id="chord-panel" class="chord-panel" role="tabpanel" tabindex="0">
+          <div class="chord-panel-heading">
+            <p>Selected chord</p>
+            <h3>Three shapes for <span id="banjo-chord-name">G major</span></h3>
+          </div>
+          <div id="banjo-shapes" class="banjo-shapes"></div>
+        </div>
+
+        <p id="banjo-note" class="banjo-note">
+          Standard tuning: <strong>gDGBD</strong>. Diagrams show the four long strings, 4th to 1st.
+          Dot numbers indicate recommended left-hand fingering: <strong>1 index · 2 middle · 3 ring · 4 pinky</strong>.
+          The short 5th-string G drone is omitted; use it when it suits the chord or key, or adjust it with a spike, capo, or tuning.
+          Fingering may vary with the surrounding chord change.
+        </p>
+      </section>
+    </main>
+
+    <script src="music-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
