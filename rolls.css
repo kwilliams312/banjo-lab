@@ -393,6 +393,15 @@
     min-width: 0;
   }
 
+  .tab-exercise {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+  }
+
+  .tab-measure {
+    min-width: 0;
+  }
+
   .roll-metronome {
     grid-template-columns: 1fr 1fr;
   }
@@ -410,6 +419,14 @@
 
   .rolls-hero {
     margin-bottom: 44px;
+  }
+
+  .roll-exercise {
+    padding: 20px 18px;
+  }
+
+  .tab-exercise {
+    grid-template-columns: 1fr;
   }
 
   .tab-legend {

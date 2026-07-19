@@ -21,7 +21,9 @@
     <main class="scales-shell">
       <nav class="site-nav" aria-label="Primary navigation">
         <a class="site-brand" href="index.html">Banjo Lab</a>
-        <div class="site-nav-links">
+        <div class="site-menu">
+          <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
+          <div id="site-nav-links" class="site-nav-links">
           <a href="circle.html">Circle</a>
           <details class="nav-menu">
             <summary>Chords</summary>
@@ -35,6 +37,7 @@
           <a href="songs.html">Song Practice</a>
           <a href="rolls.html">Roll Library</a>
           <a href="terms.html">Music Terms</a>
+          </div>
         </div>
       </nav>
 
@@ -136,6 +139,7 @@
       </aside>
     </main>
 
+    <script src="nav.js"></script>
     <script src="scales.js"></script>
   </body>
 </html>

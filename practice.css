@@ -160,6 +160,7 @@
 
 .exercise-library,
 .player {
+  min-width: 0;
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -458,6 +459,19 @@
   .player {
     padding: 20px;
     border-radius: 16px;
+  }
+
+  .section-heading {
+    flex-wrap: wrap;
+  }
+
+  .active-sequence {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .sequence-chord {
+    flex: 1 1 calc(50% - 4px);
   }
 
   .player-actions {

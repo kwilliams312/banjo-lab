@@ -20,7 +20,9 @@
     <main class="page-shell">
       <nav class="site-nav" aria-label="Primary navigation">
         <a class="site-brand" href="index.html">Banjo Lab</a>
-        <div class="site-nav-links">
+        <div class="site-menu">
+          <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
+          <div id="site-nav-links" class="site-nav-links">
           <a href="circle.html" aria-current="page">Circle</a>
           <details class="nav-menu">
             <summary>Chords</summary>
@@ -34,6 +36,7 @@
           <a href="songs.html">Song Practice</a>
           <a href="rolls.html">Roll Library</a>
           <a href="terms.html">Music Terms</a>
+          </div>
         </div>
       </nav>
 
@@ -153,6 +156,7 @@
       </section>
     </main>
 
+    <script src="nav.js"></script>
     <script src="music-data.js"></script>
     <script src="script.js"></script>
   </body>

@@ -29,6 +29,7 @@ body {
 }
 
 .site-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +39,15 @@ body {
   line-height: 1.25;
 }
 
-.site-nav > .site-nav-links {
+.site-menu {
+  margin-left: auto;
+}
+
+.site-menu-toggle {
+  display: none;
+}
+
+.site-menu > .site-nav-links {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -118,13 +127,61 @@ body {
 
 @media (max-width: 760px) {
   .site-nav {
-    flex-direction: column;
+    flex-direction: row;
     gap: 16px;
+    margin-bottom: 40px;
   }
 
-  .site-nav > .site-nav-links {
-    width: 100%;
-    justify-content: flex-start;
+  .site-menu-toggle {
+    display: block;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    color: var(--ink);
+    background: var(--surface);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .site-menu.is-open > .site-menu-toggle {
+    color: var(--surface);
+    background: var(--dark-ring);
+  }
+
+  .site-menu-toggle:focus-visible {
+    outline: 3px solid var(--accent-soft);
+    outline-offset: 2px;
+  }
+
+  .site-menu:not(.is-open) > .site-nav-links {
+    display: none;
+  }
+
+  .site-menu > .site-nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .site-menu > .site-nav-links > a,
+  .site-menu > .site-nav-links > .nav-menu {
+    min-width: 0;
+  }
+
+  .site-menu .nav-submenu {
+    right: 0;
+    left: auto;
   }
 }
 
@@ -992,17 +1049,13 @@ h1 {
 
 @media (max-width: 560px) {
   .site-nav {
-    align-items: start;
-    margin-bottom: 44px;
-  }
-
-  .site-nav > .site-nav-links {
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 36px;
   }
 
   .site-nav a,
-  .nav-menu summary {
+  .nav-menu summary,
+  .site-menu-toggle {
     padding: 9px 10px;
   }
 
