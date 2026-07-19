@@ -41,8 +41,7 @@
   padding: 30px;
 }
 
-.library-heading h2,
-.licensed-song-note h2 {
+.library-heading h2 {
   margin: 0;
   font-family: "Instrument Serif", Georgia, serif;
   font-size: 2rem;
@@ -79,6 +78,7 @@
 
 .category-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 7px;
   padding: 0 30px;
   border-bottom: 1px solid var(--line);
@@ -470,23 +470,6 @@
   text-align: center;
 }
 
-.licensed-song-note {
-  margin-top: 30px;
-  padding: 26px 30px;
-  border-left: 4px solid var(--accent);
-  border-radius: 12px;
-  background: var(--surface);
-}
-
-.licensed-song-note p:last-child {
-  max-width: 800px;
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 0.74rem;
-  line-height: 1.6;
-  text-wrap: pretty;
-}
-
 @media (max-width: 900px) {
   .song-picker-row {
     grid-template-columns: 1fr;
@@ -525,13 +508,15 @@
   }
 
   .category-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px;
-    overflow-x: auto;
     padding: 0 18px;
   }
 
   .category-tabs button {
-    min-width: 110px;
+    min-width: 0;
+    width: 100%;
   }
 
   .song-panel {
@@ -577,9 +562,6 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .licensed-song-note {
-    padding: 22px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

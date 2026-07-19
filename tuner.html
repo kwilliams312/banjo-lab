@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Microphone banjo tuner with open G and common alternative five-string banjo tunings, target pitches, and reference tones."
+    />
+    <title>Banjo Lab · Tuner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="tuner.css" />
+  </head>
+  <body>
+    <main class="tuner-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-brand" href="index.html">Banjo Lab</a>
+        <div class="site-menu">
+          <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
+          <div id="site-nav-links" class="site-nav-links">
+            <a href="circle.html">Circle</a>
+            <details class="nav-menu">
+              <summary>Chords</summary>
+              <div class="nav-submenu">
+                <a href="chords.html">Chord Chart</a>
+                <a href="practice.html?key=1">Chord Practice</a>
+                <a href="flashcards.html">Flash Cards</a>
+              </div>
+            </details>
+            <a href="tuner.html" aria-current="page">Tuner</a>
+            <a href="scales.html">Scales</a>
+            <a href="songs.html">Song Practice</a>
+            <a href="rolls.html">Roll Library</a>
+            <a href="terms.html">Music Terms</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="tuner-hero">
+        <p class="eyebrow">5-string banjo · microphone tuner</p>
+        <h1>Banjo Tuner</h1>
+        <p class="intro">
+          Tune standard open G or explore common alternative tunings. Pluck one string at a time and let it ring;
+          the tuner shows whether the nearest pitch is flat, in tune, or sharp.
+        </p>
+      </header>
+
+      <div class="tuner-layout">
+        <section class="tuner-card" aria-labelledby="live-tuner-title">
+          <div class="tuner-card-heading">
+            <div>
+              <p class="section-kicker">Listen and adjust</p>
+              <h2 id="live-tuner-title">Live tuner</h2>
+            </div>
+            <button id="tuner-toggle" type="button" aria-pressed="false">Start microphone</button>
+          </div>
+
+          <p id="tuner-status" class="tuner-status" role="status">Microphone is off.</p>
+          <p id="tuner-error" class="tuner-error" role="alert"></p>
+
+          <div class="pitch-display" aria-label="Current detected pitch">
+            <p class="pitch-caption">Detected note</p>
+            <output id="detected-note" class="detected-note">—</output>
+            <p id="detected-frequency" class="detected-frequency">Play an open string</p>
+            <p id="closest-string" class="closest-string">Select a tuning, then start the microphone.</p>
+          </div>
+
+          <div class="cent-gauge">
+            <div class="gauge-labels" aria-hidden="true">
+              <span>Flat</span>
+              <span>In tune</span>
+              <span>Sharp</span>
+            </div>
+            <div class="gauge-track" aria-hidden="true">
+              <span class="gauge-center"></span>
+              <span id="gauge-needle" class="gauge-needle"></span>
+            </div>
+            <meter id="cent-meter" min="-50" max="50" low="-5" high="5" optimum="0" value="0">0 cents</meter>
+            <output id="cent-reading" class="cent-reading">Waiting for a note</output>
+          </div>
+
+          <div class="calibration-control">
+            <label for="concert-pitch">Concert pitch</label>
+            <div>
+              <input
+                id="concert-pitch"
+                type="number"
+                min="430"
+                max="450"
+                step="1"
+                value="440"
+                inputmode="numeric"
+                aria-describedby="concert-pitch-help"
+              />
+              <span>Hz</span>
+            </div>
+            <p id="concert-pitch-help">A4 = 440 Hz is the modern standard.</p>
+          </div>
+
+          <p class="microphone-note">
+            Microphone tuning requires permission and works on the secure HTTPS site. Audio is analyzed only in
+            your browser and is not recorded or uploaded.
+          </p>
+        </section>
+
+        <section class="tuning-library" aria-labelledby="tuning-library-title">
+          <div class="tuning-library-heading">
+            <div>
+              <p class="section-kicker">Common banjo tunings</p>
+              <h2 id="tuning-library-title">Choose a tuning</h2>
+            </div>
+            <label for="tuning-select">
+              <span>Tuning</span>
+              <select id="tuning-select"></select>
+            </label>
+          </div>
+
+          <div id="tuning-summary" class="tuning-summary" aria-live="polite" aria-atomic="true">
+            <p class="tuning-notation-label">5th string to 1st string</p>
+            <h3 id="tuning-name">Open G</h3>
+            <p id="tuning-notation" class="tuning-notation">gDGBD</p>
+            <p id="tuning-description"></p>
+          </div>
+
+          <ol id="tuning-strings" class="tuning-strings" aria-label="Target pitches and reference tones"></ol>
+
+          <p class="reference-note">
+            Tap a string to hear a short reference tone. Match the banjo string by ear, then use the live tuner for
+            the final adjustment. Lowercase letters indicate the short fifth string.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script src="nav.js"></script>
+    <script src="tuner.js"></script>
+  </body>
+</html>
